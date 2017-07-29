@@ -74,6 +74,7 @@ if connectivity() == True:
 				print '--->hurrah new pasword found user name is   Username: ',usernumber_min
 				user_list.write(user_name +str(usernumber_min)+'\t'+passwd)
 				user_list.write("\n")
+				user_list.flush()
 			usernumber_min = usernumber_min  + 1
 		
 		time.sleep(2)
